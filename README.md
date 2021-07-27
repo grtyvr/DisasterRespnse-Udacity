@@ -5,6 +5,7 @@ The goal of this project is to train a Machine Learning Model that will take twe
 
 The components of this project are:
  1 The ETL Pipeline:
+ 
    A Python script called `process_data.py` which has the following effects:
     - Load the `messages.csv` and `categories.csv` datasets
     - Merge and clean the datasets
