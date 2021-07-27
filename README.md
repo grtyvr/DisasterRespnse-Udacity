@@ -12,13 +12,17 @@ The components of this project are:
     - Load the `messages.csv` and `categories.csv` datasets
     - Merge and clean the datasets
     - Store the cleaned data in an SQLite database
+    
  2 The ML Pipeline:
+ 
   A python script called `train_classifier.py` that has the following effects:
-   Load the data from the SQLite DB
-   Split the dataset into training and test sets
-   Build a text processing and machine learning pipeline
-   Train and tune the model
-   Output the results on the test set
-   Exports the final model as a `.pkl` file
+   - Load the data from the SQLite DB
+   - Split the dataset into training and test sets
+   - Build a text processing and machine learning pipeline
+   - Train and tune the model
+   - Output the results on the test set
+   - Exports the final model as a `.pkl` file
+ 
  3 A Flask Web App:
+ 
  TBD
