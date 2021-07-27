@@ -5,10 +5,10 @@ The goal of this project is to train a Machine Learning Model that will take twe
 
 The components of this project are:
  1 The ETL Pipeline:
-  A Python script called `process_data.py` which has the following effects:
-    Load the `messages.csv` and `categories.csv` datasets
-    Merge and clean the datasets
-    Store the cleaned data in an SQLite database
+   A Python script called `process_data.py` which has the following effects:
+    - Load the `messages.csv` and `categories.csv` datasets
+    - Merge and clean the datasets
+    - Store the cleaned data in an SQLite database
  2 The ML Pipeline:
   A python script called `train_classifier.py` that has the following effects:
    Load the data from the SQLite DB
