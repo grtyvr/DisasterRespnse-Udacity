@@ -1,3 +1,6 @@
+# do not track the Database for now
+*.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
