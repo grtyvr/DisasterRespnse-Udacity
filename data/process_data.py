@@ -10,7 +10,8 @@ containing categories for that message.  It cleans the data by removing duplicat
 generating category titles and expanding the category field into numeric columns
 for each category.  Finaly it creates an SQLite database with the cleaned data.
 '''
-
+import os
+from os import path
 import sys
 from textwrap import indent
 
@@ -49,6 +50,10 @@ def clean_data(df):
     character of the string and casting to int32'''
     for column in categories:
         categories[column] = categories[column].apply(lambda x: x[-1:]).astype('int32')
+
+    '''There are more than two values in the "related" column.  We are going to impute the value "2"
+    to "0" since the rows with value "0" in the related column have all zero in the remaining varriables.'''
+    categories['related'] = categories['related'].apply(lambda x: x%2)
     
     '''' replace the old category column with the new categories dataframe'''
     df.drop('categories', axis=1, inplace=True)
@@ -59,8 +64,10 @@ def clean_data(df):
 def save_data(df, database_filename):
     '''Create a new db'''
 
-    # TODO: do some checking for an existing DB, if found, look for a table called messages
-    #       and if found drop the table before trying to create a new table
+    # remove the old db if there is one
+    if path.exists(database_filename):
+        os.remove(database_filename)
+    
     engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('messages', engine, index=False)
 
